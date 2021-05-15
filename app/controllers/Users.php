@@ -4,8 +4,18 @@
       $this->userModel = $this->model('User');
     }
 
+
+
+    
+
     public function register(){
       // Check for POST
+     
+      if(isset($_SESSION['email']))
+      {
+        redirect("pages/index");
+        return;
+      }
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Process form
   
@@ -18,11 +28,14 @@
           'email' => trim($_POST['email']),
           'password' => trim($_POST['password']),
           'confirm_password' => trim($_POST['confirm_password']),
+          'matiere' => trim($_POST['matiere']),
           'name_err' => '',
           'email_err' => '',
           'password_err' => '',
           'confirm_password_err' => ''
         ];
+
+        
 
         // Validate Email
         if(empty($data['email'])){
@@ -60,11 +73,12 @@
           // Validated
           
           // Hash Password
-          $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+          $data['password'] = $data['password'];
 
+          // echo $_POST['matiere'];
           // Register User
           if($this->userModel->register($data)){
-            redirect('users/login');
+              redirect('users/login');
           } else {
             die('Something went wrong');
           }
@@ -72,6 +86,7 @@
         } else {
           // Load view with errors
           $this->view('users/register', $data);
+          $this->view('users/register', $this->matiere());
         }
 
       } else {
@@ -90,10 +105,18 @@
         // Load view
         $this->view('users/register', $data);
       }
+      
     }
 
     public function login(){
       // Check for POST
+      if(isset($_SESSION['email']))
+      {
+        redirect("pages/index");
+        return;
+      }
+      $this->userModel->login();
+      
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Process form
         // Sanitize POST data
@@ -117,15 +140,28 @@
           $data['password_err'] = 'Please enter password';
         }
 
-        // Make sure errors are empty
-        if(empty($data['email_err']) && empty($data['password_err'])){
-          // Validated
-          die('SUCCESS');
-        } else {
-          // Load view with errors
-          $this->view('users/login', $data);
-        }
+        if(isset($_POST['submit']))
+        {
+          
+          // echo password_hash($_POST['password'], PASSWORD_DEFAULT);
+          if($this->userModel->checkeUsers($_POST['email'],$_POST['password']))
+          {
+            $_SESSION['role'] = $this->userModel->login()[0]->role;
+            $_SESSION['email'] = $this->userModel->login()[0]->email;
 
+            redirect("Groups/group");
+          }
+          else
+          {
+            $data = [
+              'email' => '',
+              'password' => '',
+            ];
+            $this->view('users/login', $data);
+            
+          }
+        }
+        
 
       } else {
         // Init data
@@ -139,5 +175,18 @@
         // Load view
         $this->view('users/login', $data);
       }
+
+      
+      
+   
+    }
+
+    public function matiere()
+    {
+      return $this->userModel->matiere();
+    }
+    public function logout(){
+       session_destroy();
+       redirect("users/login");
     }
   }

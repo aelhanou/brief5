@@ -10,24 +10,43 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>">Home</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo URLROOT; ?>/Enseignents/Enseignent">enseignent</a>
+          </li>
+
+          <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 1):?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/salles/salle">Salles</a>
           </li>
+          <?php endif;?>
+
+          <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 1):?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/Groups/group">Group</a>
           </li>
+          <?php endif;?>
+          <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 1):?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/Matieres/matiere">Matiere</a>
           </li>
+          <?php endif;?>
         </ul>
-        
         <ul class="navbar-nav ml-auto">
+        <?php if(!isset($_SESSION['role'])):?>
+        
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
           </li>
+          <?php endif;?>
+          <?php if(isset($_SESSION['role'])):?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+          </li>
+          <?php endif;?>
         </ul>
       </div>
     </div>

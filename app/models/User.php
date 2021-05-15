@@ -8,11 +8,13 @@
 
     // Regsiter user
     public function register($data){
-      $this->db->query('INSERT INTO users (name, email, password) VALUES(:name, :email, :password)');
+      $this->db->query('INSERT INTO users (name, email, password, role,id_matiere) VALUES(:name, :email, :password, :role,:matiere)');
       // Bind values
       $this->db->bind(':name', $data['name']);
       $this->db->bind(':email', $data['email']);
       $this->db->bind(':password', $data['password']);
+      $this->db->bind(':matiere', $data['matiere']);
+      $this->db->bind(':role', 0);
 
       // Execute
       if($this->db->execute()){
@@ -36,5 +38,41 @@
       } else {
         return false;
       }
+    }
+
+
+
+
+    public function login(){
+
+        $this->db->query('SELECT email,password,role FROM users');
+
+        $this->db->execute();
+        return $this->db->resultSet();
+
+    }
+
+    public function checkeUsers($email,$password)
+    {
+
+        foreach($this->db->resultSet() as $result)
+        {
+           if($result->email == $email && $result->password == $password)
+           {
+              return 1;
+           }
+        }
+
+        return 0;
+    }
+
+
+    public function matiere()
+    {
+     
+      $this->db->query("SELECT * FROM matiere");
+      $stm = $this->db->resultSet();
+
+      return $stm;
     }
   }

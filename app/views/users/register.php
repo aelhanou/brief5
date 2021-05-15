@@ -16,6 +16,17 @@
             <span class="invalid-feedback"><?php echo $data['email_err']; ?></span>
           </div>
           <div class="form-group">
+            <label for="">Matiere: </label><br>
+            <select class="form-control" name="matiere" >
+            <option> </option>
+            
+              <?php foreach($this->matiere() as $matiere): ?>
+                
+                <option value="<?php echo $matiere->id ?>" > <?php echo $matiere->matiere?></option>
+              <?php endforeach;?>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="password">Password: <sup>*</sup></label>
             <input type="password" name="password" class="form-control form-control-lg <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['password']; ?>">
             <span class="invalid-feedback"><?php echo $data['password_err']; ?></span>

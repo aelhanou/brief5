@@ -115,6 +115,7 @@
         redirect("pages/index");
         return;
       }
+      
       $this->userModel->login();
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -131,25 +132,30 @@
         ];
 
         // Validate Email
-        if(empty($data['email'])){
-          $data['email_err'] = 'Pleae enter email';
-        }
-
-        // Validate Password
-        if(empty($data['password'])){
-          $data['password_err'] = 'Please enter password';
-        }
+       
 
         if(isset($_POST['submit']))
         {
           
+          if(empty($data['email'])){
+            $data['email_err'] = 'Pleae enter email';
+            
+          }
+  
+          // Validate Password
+          if(empty($data['password'])){
+            $data['password_err'] = 'Please enter password';
+            $this->view('users/login', $data);
+          }
           // echo password_hash($_POST['password'], PASSWORD_DEFAULT);
           if($this->userModel->checkeUsers($_POST['email'],$_POST['password']))
           {
-            $_SESSION['role'] = $this->userModel->login()[0]->role;
+            $_SESSION['role'] = $this->userModel->role()->role;
             $_SESSION['email'] = $this->userModel->login()[0]->email;
-
-            redirect("Groups/group");
+            if(isset($_SESSION['role']) && $_SESSION['role'] == 1)
+              redirect("Groups/group");
+            else
+              redirect("Enseignents/Enseignent");
           }
           else
           {

@@ -15,7 +15,7 @@
       $this->db->bind(':password', $data['password']);
       $this->db->bind(':matiere', $data['matiere']);
       $this->db->bind(':role', 0);
-
+      // $_SESSION['id_matiere'] = $data['matiere'];
       // Execute
       if($this->db->execute()){
         return true;
@@ -45,12 +45,18 @@
 
     public function login(){
 
-        $this->db->query('SELECT email,password,role FROM users');
-
+        $this->db->query('SELECT id,email,password FROM users');
         $this->db->execute();
         return $this->db->resultSet();
 
     }
+    public function role(){
+
+      $this->db->query('SELECT role FROM users WHERE id='.$_SESSION['id']);
+      $this->db->execute();
+      return $this->db->single();
+
+  }
 
     public function checkeUsers($email,$password)
     {
@@ -59,6 +65,7 @@
         {
            if($result->email == $email && $result->password == $password)
            {
+              $_SESSION['id'] = $result->id;
               return 1;
            }
         }
@@ -72,7 +79,7 @@
      
       $this->db->query("SELECT * FROM matiere");
       $stm = $this->db->resultSet();
-
+      
       return $stm;
     }
   }

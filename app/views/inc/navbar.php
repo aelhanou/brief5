@@ -10,11 +10,11 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>">Home</a>
           </li>
-
+          <?php if(isset($_SESSION['role'])): ?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/Enseignents/Enseignent">enseignent</a>
           </li>
-
+          <?php endif;?>
           <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 1):?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/salles/salle">Salles</a>

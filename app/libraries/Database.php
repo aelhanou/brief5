@@ -60,7 +60,6 @@
         }
 
         // Execute the values
-
         public function execute()
         {
             return $this->stmt->execute();    

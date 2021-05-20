@@ -12,7 +12,7 @@
           </li>
           <?php if(isset($_SESSION['role'])): ?>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/Enseignents/Enseignent"><i class="fas fa-user"></i>&nbsp;enseignent</a>
+            <a class="nav-link" href="<?php echo URLROOT; ?>/Enseignents/Enseignent"><i class="fas fa-user"></i>&nbsp;Enseignent</a>
           </li>
           <?php endif;?>
           <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 1):?>

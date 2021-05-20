@@ -1,13 +1,14 @@
 <?php require_once APPROOT . '/views/inc/header.php' ?>
 
 
-
-<div class="jumbotron">
+<div class="container-fluid p-2  " style="background-color:#d9def39e;height:100%;border-radius:10px">
+<h1 class="text-center  mt-0">Enseignent</h1>
+<div class="jumbotron" style="background-color:#d9def39e;">
     <div class="col-md-6 mx-auto">
-        <div class="card card-body bg-light mt-5">
+        <div class="card card-body mt-0 p-4">
 
             <form action="http://localhost/brief5/Enseignents/insert" method="post">
-                <h1 class="texet-center">Mr <?php echo $this->UserName()->name;?></h1>
+                <h1 class="texet-center"><u>Mr <?php echo $this->UserName()->name;?></u></h1>
                 <div class="form-group">
                     <label for="name">Groups: <sup>*</sup></label>
                     <select name="id_groupe" class="form-control form-control-lx">
@@ -52,7 +53,7 @@
         
                 </div>
                 <div class="col  align-self-end">
-                    <input class="btn btn-primary" type="submit" value="reserve" name="reserve">
+                    <input class=" w-25 btn btn-success btn-block float-right" type="submit" value="reserve" name="reserve" style="background-color: #536DFE;">
                 </div>
             </form>
         </div>
@@ -75,39 +76,43 @@
           <th class="text-center">heure</th>
           <th class="text-center">Action</th>
         </tr>
-
-
-        <?php foreach ($this->getSuivi() as $dat) : ?>
+        
+      <?php  foreach($this->getSuivi() as $MyReservation):  ?>
+     <?php if($this->getId_matiere()->id_matiere == $MyReservation->id_matiere ) : ?>
+        
           <tr>
             <td>
-              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->id ?>" name="ens_id_name"  >
+              <input type="text" class="input1 text-center border-0" value="<?php echo $MyReservation->id ?>" name="ens_id_name"  >
             </td>
             <td>
-              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->groupe?>" name="ens_groupe_name"  >
+              <input type="text" class="input1 text-center border-0" value="<?php echo $MyReservation->groupe?>" name="ens_groupe_name"  >
             </td>
             <td>
-              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->salle  ?>" name="ens_salle_name"  >
+              <input type="text" class="input1 text-center border-0" value="<?php echo $MyReservation->salle  ?>" name="ens_salle_name"  >
             </td>
             <td>
-              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->matiere ?>" name="ens_matiere_name"  >
+              <input type="text" class="input1 text-center border-0" value="<?php echo $MyReservation->matiere ?>" name="ens_matiere_name"  >
             </td>
             <td>
-              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->date  ?>" name="en_date_name"  >
+              <input type="text" class="input1 text-center border-0" value="<?php echo $MyReservation->date  ?>" name="en_date_name"  >
             </td>
             <td>
-              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->heure  ?>" name="ens_heure_name"  >
+              <input type="text" class="input1 text-center border-0" value="<?php echo $MyReservation->heure  ?>" name="ens_heure_name"  >
             </td>
             <td>
-              <a href="http://localhost/brief5/Matieres/Save/<?= $dat->id ?>" id="Edit" class="btn btn-success btn-sm" onclick="edit(event)" name='Edit' value="<?php echo  $dat->id ?>">Edit</a>
-              <button id="Save" class="btn btn-success btn-sm" name='Save' value="<?php echo  $dat->id ?>">Save</button>
+              <a href="http://localhost/brief5/Matieres/Save/<?= $MyReservation->id ?>" id="Edit" class="btn btn-success btn-sm" style="background-color: #536DFE;" onclick="edit(event)" name='Edit' value="<?php echo  $MyReservation->id ?>">Edit</a>
+              <button id="Save" class="btn btn-success btn-sm" name='Save' style="background-color: #536DFE;" value="<?php echo  $MyReservation->id ?>">Save</button>
 
-              <a href="http://localhost/brief5/Enseignents/Delete/<?= $dat->id ?>" class="btn btn-danger btn-sm" onclick="Delete(event)" name='Delete' value="<?php echo $dat->id ?>">Delete</a>
-              <button id="cancel" class="btn btn-danger btn-sm" onclick="Delete(event)" name='Cancel' value="<?php echo $dat->id ?>">Cancel</button>
+              <a href="http://localhost/brief5/Enseignents/Delete/<?= $MyReservation->id ?>" class="btn btn-danger btn-sm" onclick="Delete(event)" name='Delete' value="<?php echo $MyReservation->id ?>">Delete</a>
+              <button id="cancel" class="btn btn-danger btn-sm" onclick="Delete(event)" name='Cancel' value="<?php echo $MyReservation->id ?>">Cancel</button>
             </td>
           </tr>
 
-        <?php endforeach ?>
+        
+          
     </tr>
+    <?php endif;?>
+          <?php endforeach; ?>
 
     </table>
 
@@ -115,5 +120,5 @@
   </div>
 </div>
 
-
+</div>
 <?php require_once APPROOT . '/views/inc/footer.php' ?>

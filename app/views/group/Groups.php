@@ -6,10 +6,10 @@
   <div class="col-md-6 mb-5 mt-5 mx-auto p-3">
     <div class="card card-body bg-light mt-6">
       <div class="input-group mb-3 pt-3">
-        <input type="text" name="groupName" class="form-control" placeholder="Nom de Group" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" name="groupName" class="form-control " placeholder="Nom de Group" aria-label="Username" aria-describedby="basic-addon1">
       </div>
       <div class="input-group mb-3 pb-2">
-        <input type="text" name="effectif" class="form-control" placeholder="Effectif" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" name="effectif" class="form-control " placeholder="Effectif" aria-label="Username" aria-describedby="basic-addon1">
       </div>
       <div class="w-100 text-right ">
         <input type="submit" name="submit" class="w-25 btn btn-success btn-block float-right" value="Submit" style="background-color: #536DFE;">

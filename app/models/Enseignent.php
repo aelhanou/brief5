@@ -67,7 +67,7 @@ class   Enseignent
 
     public function getSuivi()
     {
-        $this->db->query("SELECT date,heure,suivi.id, salle.salle,groupe.groupe,matiere.matiere FROM suivi INNER JOIN salle ON salle.id = suivi.id_salle INNER JOIN groupe ON groupe.id = suivi.id_groupe INNER JOIN matiere ON matiere.id = suivi.id_matiere");
+        $this->db->query("SELECT date,id_matiere,heure,suivi.id, salle.salle,groupe.groupe,matiere.matiere FROM suivi INNER JOIN salle ON salle.id = suivi.id_salle INNER JOIN groupe ON groupe.id = suivi.id_groupe INNER JOIN matiere ON matiere.id = suivi.id_matiere");
         return $this->db->resultSet();
     }
 

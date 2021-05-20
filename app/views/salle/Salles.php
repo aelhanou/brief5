@@ -1,6 +1,6 @@
 <?php require_once APPROOT . '/views/inc/header.php' ?>
-
-<div class="text-center  m-3 fs-1 ">Salles</div>
+<div class="container-fluid p-4  " style="background-color: #d9def39e;height:90vh;border-radius:10px">
+<h1 class="text-center  mt-0  ">Salles</h1>
 <form action="http://localhost/brief5/salles/insert" method="post">
   <div class="col-md-6 mb-5 mt-5 mx-auto ">
     <div class="card card-body bg-light mt-6">
@@ -11,7 +11,7 @@
         <input type="text" name="capacity" class="form-control" placeholder="Capacity" aria-label="Username" aria-describedby="basic-addon1">
       </div>
       <div class="w-100 text-right ">
-        <input type="submit" name="submit" class="w-25" value="Submit">
+        <input type="submit" name="submit" class="w-25 btn btn-success btn-block float-right"  style="background-color: #536DFE;" value="Submit">
       </div>
     </div>
 </form>
@@ -38,8 +38,8 @@
               <input type="text"class="input1 text-center border-0"  value="<?php echo $dat->capacite ?>" name="capacity_numb" >
             </td>
             <td>
-              <a href="http://localhost/brief5/salles/Save/<?= $dat->id ?>" id="Edit" class="btn btn-success btn-sm" onclick="edit(event)" name='Edit' value="<?php echo  $dat->id ?>">Edit</a href="">
-              <button id="Save" class="btn btn-success btn-sm"  name='Save' value="<?php echo  $dat->id ?>">Save</button>
+              <a href="http://localhost/brief5/salles/Save/<?= $dat->id ?>" id="Edit" class="btn btn-success btn-sm" onclick="edit(event)" name='Edit' style="background-color: #536DFE;" value="<?php echo  $dat->id ?>">Edit</a href="">
+              <button id="Save" class="btn btn-success btn-sm"  name='Save' style="background-color: #536DFE;" value="<?php echo  $dat->id ?>">Save</button>
 
               
               <a href="http://localhost/brief5/salles/Delete/<?= $dat->id ?>" class="btn btn-danger btn-sm"  name='Delete' value="<?php echo $dat->id ?>">Delete</a>
@@ -54,6 +54,7 @@
 
     </table>
   </div>
+</div>
 </div>
 <?php require_once APPROOT . '/views/inc/footer.php' ?>
 

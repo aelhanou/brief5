@@ -59,6 +59,8 @@
     </div>
 </div>
 
+
+
 <div class=" m-auto text-center">
   <div class="card card-body bg-light ">
     <form id="editForm" action="" method="post"></form>
@@ -81,13 +83,13 @@
               <input type="text" class="input1 text-center border-0" value="<?php echo $dat->id ?>" name="ens_id_name"  >
             </td>
             <td>
-              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->id_groupe ?>" name="ens_groupe_name"  >
+              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->groupe?>" name="ens_groupe_name"  >
             </td>
             <td>
-              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->id_salle  ?>" name="ens_salle_name"  >
+              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->salle  ?>" name="ens_salle_name"  >
             </td>
             <td>
-              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->id_matiere  ?>" name="ens_matiere_name"  >
+              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->matiere ?>" name="ens_matiere_name"  >
             </td>
             <td>
               <input type="text" class="input1 text-center border-0" value="<?php echo $dat->date  ?>" name="en_date_name"  >

@@ -17,9 +17,6 @@ class Enseignents extends Controller
         $this->view("ens/Enseignent", $this->getGroups());
         $this->view("ens/Enseignent", $this->getSalles());
         $this->view("ens/Enseignent", $this->UserName());
-        $this->view("ens/Enseignent", $this->getSalleSuivi());
-        $this->view("ens/Enseignent", $this->getgroupeSuivi());
-        $this->view("ens/Enseignent", $this->getMatiereSuivi());
         $this->view("ens/Enseignent", $this->getSuivi());
     }
 
@@ -79,18 +76,7 @@ class Enseignents extends Controller
         return $this->ens->userName($_SESSION['id']);
     }
 
-    public function getSalleSuivi()
-    {
-        return $this->ens->getSalleSuivi();
-    }
-    public function getgroupeSuivi()
-    {
-        return $this->ens->getgroupeSuivi();
-    }
-    public function getMatiereSuivi()
-    {
-        return $this->ens->getMatiereSuivi();
-    }
+ 
     public function getSuivi()
     {
         return $this->ens->getSuivi();

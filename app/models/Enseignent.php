@@ -67,26 +67,11 @@ class   Enseignent
 
     public function getSuivi()
     {
-        $this->db->query("SELECT * FROM suivi");
+        $this->db->query("SELECT date,heure,suivi.id, salle.salle,groupe.groupe,matiere.matiere FROM suivi INNER JOIN salle ON salle.id = suivi.id_salle INNER JOIN groupe ON groupe.id = suivi.id_groupe INNER JOIN matiere ON matiere.id = suivi.id_matiere");
         return $this->db->resultSet();
     }
 
-    public function getSalleSuivi()
-    {
-        $this->db->query("SELECT date, heure, id_groupe,salle.salle FROM suivi INNER JOIN salle ON suivi.id_salle=salle.id");
-        return $this->db->resultSet();
-    }
-    public function getgroupeSuivi()
-    {
-        $this->db->query("SELECT groupe.id,groupe.groupe FROM suivi INNER JOIN groupe ON  suivi.id_groupe =groupe.id");
-        return $this->db->resultSet();
-    }
-    public function getMatiereSuivi()
-    {
-        $this->db->query("SELECT users.id_matiere FROM suivi INNER JOIN users ON suivi.id_user = users.id");
-        return $this->db->resultSet();
-        
-    }
+    
 
     public function delete($id)
     {

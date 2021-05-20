@@ -32,10 +32,10 @@
         <?php foreach ($data as $key => $dat) : ?>
           <tr>
             <td>
-              <input type="text" class="input1 border-0" value="<?php echo $dat->salle ?>" name="salle_name"  >
+              <input type="text" class="input1 text-center border-0" value="<?php echo $dat->salle ?>" name="salle_name"  >
             </td>
             <td>
-              <input type="text"class="input1 border-0"  value="<?php echo $dat->capacite ?>" name="capacity_numb" >
+              <input type="text"class="input1 text-center border-0"  value="<?php echo $dat->capacite ?>" name="capacity_numb" >
             </td>
             <td>
               <a href="http://localhost/brief5/salles/Save/<?= $dat->id ?>" id="Edit" class="btn btn-success btn-sm" onclick="edit(event)" name='Edit' value="<?php echo  $dat->id ?>">Edit</a href="">

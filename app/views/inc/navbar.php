@@ -15,6 +15,11 @@
             <a class="nav-link text-white" href="<?php echo URLROOT; ?>/Enseignents/Enseignent"><i class="fas fa-user"></i>&nbsp;Enseignent</a>
           </li>
           <?php endif;?>
+          <?php if(isset($_SESSION['role'])): ?>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="<?php echo URLROOT; ?>/EditReservationCont/EditReservation"><i class="fas fa-edit"></i>&nbsp;Edit Reservation</a>
+          </li>
+          <?php endif;?>
           <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 1):?>
           <li class="nav-item">
             <a class="nav-link text-white" href="<?php echo URLROOT; ?>/salles/salle">Salles</a>

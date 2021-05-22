@@ -82,19 +82,19 @@ let edit = (event)=>{
     event.target.parentNode.parentElement.querySelector('[name="Cancel"]').setAttribute("form","editForm");
     }
 
-    if(event.target.parentNode.parentElement.querySelectorAll('input')[0].getAttribute("name") == "ens_name")
-    {
+    // if(event.target.parentNode.parentElement.querySelectorAll('input')[0].getAttribute("name") == "ens_name")
+    // {
     
    
-    event.target.parentNode.parentElement.querySelector('[name="ens_name"]').disabled = false
+    // event.target.parentNode.parentElement.querySelector('[name="ens_name"]').disabled = false
 
 
 
-    event.target.parentNode.parentElement.querySelector('[name="ens_name"]').setAttribute("form","editForm");
-    event.target.parentNode.parentElement.querySelector('[name="Edit"]').setAttribute("form","editForm");
-    event.target.parentNode.parentElement.querySelector('[name="Save"]').setAttribute("form","editForm");
-    event.target.parentNode.parentElement.querySelector('[name="Cancel"]').setAttribute("form","editForm");
-    }
+    // event.target.parentNode.parentElement.querySelector('[name="ens_name"]').setAttribute("form","editForm");
+    // event.target.parentNode.parentElement.querySelector('[name="Edit"]').setAttribute("form","editForm");
+    // event.target.parentNode.parentElement.querySelector('[name="Save"]').setAttribute("form","editForm");
+    // event.target.parentNode.parentElement.querySelector('[name="Cancel"]').setAttribute("form","editForm");
+    // }
 
 
 
@@ -140,3 +140,9 @@ let Delete = (event)=>{
     event.target.parentNode.parentElement.querySelector('[name="Delete"]').setAttribute("form","editForm");
     
 }
+
+// let editResrvation = (event)=>{
+
+//     event.preventDefault();
+//     event.target.parentNode.parentElement.querySelector('[name="ens_id_name"]').disabled = false
+// }

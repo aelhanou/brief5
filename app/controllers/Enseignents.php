@@ -5,6 +5,7 @@ class Enseignents extends Controller
     public function __construct()
     {
         $this->ens = $this->model("Enseignent");
+        
     }
 
 
@@ -46,7 +47,10 @@ class Enseignents extends Controller
             redirect("pages/index");
             return;
         }
-
+        if(empty($_POST['id_groupe']) || empty($_POST['id_salle']) || empty($_POST['jour'])|| empty($_POST['heure']))
+        {
+            redirect("Enseignents/Enseignent");
+        }
         foreach ($this->checkTime() as $heure) {
             if ($heure->heure == $_POST['heure'] && $heure->date == $_POST['jour']) {
                 $_SESSION['heure'] = 1;
@@ -99,4 +103,8 @@ class Enseignents extends Controller
             redirect("Enseignents/Enseignent");
         }
     }
+
+
+
+   
 }

@@ -46,7 +46,7 @@
                         <option value="16:00:00">16:00-18:00</option>
                     </select>
                     <?php if(isset($_SESSION['heure']) && $_SESSION['heure'] == 1){ ?>
-                        <?php  echo "<label >this time is already taken</label>"; $_SESSION['heure'] = 0; ?>
+                        <?php  echo "<label class='text-danger'>this time is already taken</label>"; $_SESSION['heure'] = 0; ?>
                 <?php };?>
                 
             
@@ -100,7 +100,7 @@
               <input type="text" class="input1 text-center border-0" value="<?php echo $MyReservation->heure  ?>" name="ens_heure_name"  >
             </td>
             <td>
-              <a href="http://localhost/brief5/Matieres/Save/<?= $MyReservation->id ?>" id="Edit" class="btn btn-success btn-sm" style="background-color: #536DFE;" onclick="edit(event)" name='Edit' value="<?php echo  $MyReservation->id ?>">Edit</a>
+              <a href="http://localhost/brief5/EditReservationCont/EditReservation/<?= $MyReservation->id ?>" id="Edit" class="btn btn-success btn-sm" style="background-color: #536DFE;"  name='Edit' value="<?php echo  $MyReservation->id ?>">Edit</a>
               <button id="Save" class="btn btn-success btn-sm" name='Save' style="background-color: #536DFE;" value="<?php echo  $MyReservation->id ?>">Save</button>
 
               <a href="http://localhost/brief5/Enseignents/Delete/<?= $MyReservation->id ?>" class="btn btn-danger btn-sm" onclick="Delete(event)" name='Delete' value="<?php echo $MyReservation->id ?>">Delete</a>

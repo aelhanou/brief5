@@ -1,0 +1,21 @@
+
+
+
+
+.popUp {
+    position: absolute;
+    width: 450px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: black;
+    background-color: #aab6fa;
+    border-radius: 10px;
+    top: 14%;
+    left: 36%;
+    padding: 4px;
+    font-size: 18px;
+    text-align: center;
+}

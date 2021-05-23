@@ -17,7 +17,7 @@
             <div class="card card-body mt-0 p-4">
 
                 <form action="http://localhost/brief5/EditReservationCont/update" method="post">
-                    <h1 class="texet-center"><u>Mr</u></h1>
+                    <h1 class="texet-center" id="dt" data-data ="<?php echo $d[2]?>"><u>Mr <?php if ($d[2] > -1) { ?> <?php echo $this->UserName()->name?> <?php } ?></u></h1>
                     <div class="form-group">
                         <label for="name">Groups: <sup>*</sup></label>
                         <select name="id_groupe" class="form-control form-control-lx">

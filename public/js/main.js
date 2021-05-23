@@ -23,6 +23,19 @@ cnlb.map(e=>{
     e.style.display='none';
 })
 
+if(document.querySelector("#dt") != undefined)
+{
+    if(document.querySelector("#dt").getAttribute("data-data") == -1)
+    {
+        let popUp = document.createElement("div");
+        popUp.classList.add("popUp");
+        popUp.innerHTML = "OooPs ... There's nothing to edit ..go to reservation page and try to edit something there !!";
+
+        document.body.appendChild(popUp);
+
+    }
+}
+
 
 let edit = (event)=>{
     
@@ -30,13 +43,14 @@ let edit = (event)=>{
     {
         event.preventDefault();
     }
+    
 
     event.target.parentNode.parentElement.querySelector('[name="Save"]').style.display='inherit';
     event.target.parentNode.parentElement.querySelector('[name="Cancel"]').style.display='inherit';
     if(event.target.parentNode.parentElement.querySelectorAll('input')[0].getAttribute("name") == "gr_name")
     {
 
-
+        
 
     event.target.parentNode.parentElement.querySelector('[name="gr_name"]').disabled = false
     event.target.parentNode.parentElement.querySelector('[name="effectif_numb"]').disabled = false
@@ -82,23 +96,7 @@ let edit = (event)=>{
     event.target.parentNode.parentElement.querySelector('[name="Cancel"]').setAttribute("form","editForm");
     }
 
-    // if(event.target.parentNode.parentElement.querySelectorAll('input')[0].getAttribute("name") == "ens_name")
-    // {
     
-   
-    // event.target.parentNode.parentElement.querySelector('[name="ens_name"]').disabled = false
-
-
-
-    // event.target.parentNode.parentElement.querySelector('[name="ens_name"]').setAttribute("form","editForm");
-    // event.target.parentNode.parentElement.querySelector('[name="Edit"]').setAttribute("form","editForm");
-    // event.target.parentNode.parentElement.querySelector('[name="Save"]').setAttribute("form","editForm");
-    // event.target.parentNode.parentElement.querySelector('[name="Cancel"]').setAttribute("form","editForm");
-    // }
-
-
-
-
     editForm.action = event.target.href;
 
 
@@ -106,20 +104,11 @@ let edit = (event)=>{
     event.target.parentNode.parentElement.querySelector('[name="Edit"]').style.display = "none";
 }
 
-// let save = document.getElementById("save");
-
-// save.addEventListener("click",()=>{
-//     event.target.parentNode.parentElement.querySelector('[name="Edit"]').setAttribute("id","Edit")
-//     event.target.parentNode.parentElement.querySelector('[name="Edit"]').innerHTML = "Save";
-// })
-
-
-
 
 
 let Delete = (event)=>{
     
-    // document.location.reload();
+    
 
     if(event.target.parentNode.parentElement.querySelectorAll('input')[0] == "gr_name")
     {
@@ -131,18 +120,13 @@ let Delete = (event)=>{
         event.target.parentNode.parentElement.querySelector('[name="salle_name"]').setAttribute("form","editForm");
         event.target.parentNode.parentElement.querySelector('[name="capacity_numb"]').setAttribute("form","editForm");
     }
-    // event.preventDefault();
-
-    // console.log(event.target.parentNode.parentElement.querySelectorAll('input')[0]);
-    // console.log(event.target.parentNode.parentElement.querySelectorAll('input')[1]);
+    
     event.target.parentNode.parentElement.querySelector('[name="Edit"]').setAttribute("form","editForm");
 
     event.target.parentNode.parentElement.querySelector('[name="Delete"]').setAttribute("form","editForm");
     
 }
 
-// let editResrvation = (event)=>{
 
-//     event.preventDefault();
-//     event.target.parentNode.parentElement.querySelector('[name="ens_id_name"]').disabled = false
-// }
+
+
